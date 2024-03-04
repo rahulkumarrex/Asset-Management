@@ -1,0 +1,88 @@
+<div class="banner">
+  <div class="container">
+    <div class="searchbar">
+      <select name="filter"  class="form-select" id="filter" [(ngModel)]="category"
+        (change)="displayByCategory(category)">
+        <option value="" disabled selected>Category</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Office">Office</option>
+        <option value="Vehicle">Vehicle</option>
+        <option value="Furniture">Furniture</option>
+      </select>
+
+      <!-- <select name="search" class="form-select" id="search" [(ngModel)]="select">
+        <option value="" disabled selected>Select</option>
+        <option value="assetName">Name</option>
+        <option value="assetId">ID</option>
+      </select> -->
+
+      <input type="text" class="form-control" placeholder="Search By Name" id="searchbar" [(ngModel)]="searchName" />
+      <button (click)="performSearch(searchName, 'assetName')" class="btn btn-outline-info">
+        Search
+      </button>
+      <button (click)="displayAll()" class="btn btn-dark" id="getall">
+        All Assets
+      </button>
+
+      <button routerLink="/employee/assetowned" class="btn btn-dark" id="getall">
+        Asset Owned
+      </button>
+      
+    </div>
+  </div>
+   <div class="condition">
+    <div class="message">
+        <div *ngIf="searchedByName">No assets found with the given name.</div>
+        <div *ngIf="searchedById">No assets found with the given ID.</div>
+        
+        </div>
+
+  <div class="row" *ngIf="showTables === 'name'">
+    <div class="col-md-4 mb-4" *ngFor="let asset of assetList; let i = index">
+      <div class="card" >
+        <img class="card-image-blur" [src]="'assets/asset_images/' + asset.assetId + '.jpg'" alt="Asset Image" />
+        <img class="card-image" [src]="'assets/asset_images/' + asset.assetId + '.jpg'" alt="Asset Image" />
+       <div class="hiddendiv" id="hide">
+        <div class="card-content" >
+          <div class="assetbutton">
+            <button (click)="toggleDetails(i)">Read More</button>
+          </div>
+          <div class="show-details" [ngClass]="{ expanded: showDetails[i] }">
+            <p class="card-text">Asset ID: {{ asset.assetId }}</p>
+            <p class="card-text">Category: {{ asset.assetCategory }}</p>
+            <p class="card-text">Model: {{ asset.assetModel }}</p>
+            <p class="card-text">
+              Manufacturing Date: {{ asset.manufacturingDate }}
+            </p>
+            <p class="card-text">Expiry Date: {{ asset.expiryDate }}</p>
+            <p class="card-text">Value: {{ asset.assetValue }}</p>
+          </div>
+        </div>
+      </div>
+
+
+      
+      </div>
+      <div class="card-content" >
+        <div class="assetbutton">
+          <button (click)="toggleDetails(i)">Read More</button>
+        </div>
+        <div class="show-details" [ngClass]="{ expanded: showDetails[i] }">
+          <p class="card-text">Asset ID: {{ asset.assetId }}</p>
+          <p class="card-text">Category: {{ asset.assetCategory }}</p>
+          <p class="card-text">Model: {{ asset.assetModel }}</p>
+          <p class="card-text">
+            Manufacturing Date: {{ asset.manufacturingDate }}
+          </p>
+          <p class="card-text">Expiry Date: {{ asset.expiryDate }}</p>
+          <p class="card-text">Value: {{ asset.assetValue }}</p>
+        </div>
+      </div>
+      <div class="heading">
+        <h5 class="card-title">{{ asset.assetName }}</h5>
+        <button type="button" class="request" (click)="assetRequest(asset.assetId)"  > 
+          <span></span>Request Asset</button>
+      </div>
+    </div>
+  </div>
+</div>

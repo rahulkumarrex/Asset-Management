@@ -1,0 +1,72 @@
+.full-container{
+    min-height: 100vh;
+    min-width: 100vw;
+    background: url('src\assets\employeelist.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; */
+  }
+  
+  
+  #emptable {
+      font-size: 16px;
+      width: 100%; 
+    }
+    
+    .container{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+  .searchbar{
+    width:85%; 
+    /* position: absolute; */
+    /* margin-left: 250px; */
+  
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+  
+  }
+  .assetName{
+    width: 20rem; /* You can adjust the width as needed */
+    word-wrap: break-word;
+  }
+  .header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .searchbar #searchbar{
+    margin-left: 10px;
+    width: 50rem;
+  }
+  .searchbar button{
+    margin-left: 10px;
+  }
+
+  .searchbar .selectpicker{
+    margin-right: 10px;
+
+  }
+  
+  .table{
+    margin-top: 10px;
+    
+  }
+  
+  #getall{
+    width: 20rem;
+    
+  }
+  
+  
+  
+  

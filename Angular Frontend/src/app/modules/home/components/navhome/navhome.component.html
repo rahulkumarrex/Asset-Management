@@ -1,0 +1,25 @@
+
+<div class="main">
+  <nav id="navbar" class="">
+    <div class="nav-wrapper">
+      <div class="logo">
+        <a href="#">Asset Management</a>
+      </div>
+  
+      <ul >
+        <li><a [routerLink]="['/homepage']" fragment="content">Home</a></li>
+        <li><a [routerLink]="['/homepage']" fragment="about">About</a></li>
+         <li><a [routerLink]="['/homepage']" fragment="service">Services</a></li>
+
+        <li><a [routerLink]="['/homepage']" fragment="contact">Contact</a></li>
+      </ul>
+         <div class="logout">
+        <i class="fas fa-sign-out-alt" [hidden]="checkToken()" (click)="deleteToken()" routerLink="" ></i>
+  
+      </div>
+    
+    
+    </div>
+  </nav>
+
+</div>

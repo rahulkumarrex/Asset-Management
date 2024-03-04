@@ -1,0 +1,107 @@
+
+<div class="full-container">
+   
+    <div class="header"><h2> Asset List</h2></div>
+    <div class="container">
+    <div class="searchbar">        
+    <select name="filter" class="selectpicker" id="filter"  [(ngModel)]="category" (change)="displayByCategory(category)" >
+      <option value="" disabled selected> Category</option>
+      <option value="Electronics"> Electronics</option>
+      <option value="Office">Office</option>
+      <option value="Vehicle">Vehicle</option>
+      <option value="Furniture">Furniture</option>
+    </select>
+    
+    <select name="search" class="form-select" id="search"  [(ngModel)]="select" >
+      <option value="" disabled selected> Select</option>
+      <option value="assetName"> Name</option>
+      <option value="assetId">ID</option>
+    </select>
+    
+        <input type="text" class="form-control" placeholder="Search" id="searchbar" [(ngModel)]="searchName">
+        <button  (click)="performSearch(searchName,select)" class="btn btn-outline-info">Search</button>
+        <button  (click)="displayAll()" class="btn btn-dark" id="getall">All Assets</button>
+    </div>
+    </div>
+
+        
+    
+    <table class = "table table-striped table-dark" style="background-color: rgba(255, 255, 255, 0.5);  color: black; font-weight: 700; " id="emptable" *ngIf="showTables === 'name'">
+        <thead>
+            <tr>
+                <!-- <th> Asset ID</th> -->
+                <th> Asset  Name </th>
+                <th> Asset Category</th>
+                <th> Asset Model  </th>
+                <th> Manufacturing Date  </th>
+                <th> Expiry Date </th>
+                <th> Asset Value </th>
+                <th> Status </th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr *ngFor = "let asset of assetList" >
+                <!-- <td> {{ asset.assetId }} </td> -->
+                <td class="assetName"> {{ asset.assetName }} </td>
+                <td> {{ asset.assetCategory }} </td>
+                <td> {{ asset.assetModel }} </td>
+                <td> {{ asset.manufacturingDate }}  </td>
+                <td> {{ asset.expiryDate }}  </td>
+                <td> {{ asset.assetValue | currency:'INR'}}  </td>
+                <td>    <div class="admin">
+                    <select name="admin" id="admin{{asset.assetId}}" [(ngModel)]="asset.status" (change)="updateStatus($event,asset.status , asset.assetId)"  >
+                        <option value="" disabled selected>Select</option>
+                        <option value="Available">Available</option>
+                        <option value="In Use">In Use</option>
+                    </select>
+                </div> </td>
+                
+                <td>
+                    <i class="fas fa-trash-alt" id="deleteIcon" (click)="deleteById(asset.assetId) " style="margin-left: 20px;"></i> 
+                    <button style="margin-left: 30px;" type="button" class="btn btn-info" routerLink="../updateasset/{{asset.assetId}}">Update</button>
+            </td>
+      
+    
+            </tr>
+        </tbody>
+    </table>
+    
+
+
+    <table class = "table table-striped table-dark" id="emptable" *ngIf="showTables === 'id'">
+        <thead>
+            <tr>
+                <th> Asset ID</th>
+                <th> Asset  Name </th>
+                <th> Asset Category</th>
+                <th> Asset Model  </th>
+                <th> Manufacturing Date  </th>
+                <th> Expiry Date </th>
+                <th> Asset Value </th>
+                <th> Status </th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  >
+                <td> {{ asset.assetId }} </td>
+                <td> {{ asset.assetName }} </td>
+                <td> {{ asset.assetCategory }} </td>
+                <td> {{ asset.assetModel }} </td>
+                <td> {{ asset.manufacturingDate }}  </td>
+                <td> {{ asset.expiryDate }}  </td>
+                <td> {{ asset.assetValue}}  </td>
+                <td> {{ asset.status }}   </td>
+                <td> 
+                <button type="button" class="btn btn-danger"  (click)="deleteById(asset.assetId)">Delete</button>
+
+                <button style="margin-left: 30px;" type="button" class="btn btn-info" routerLink="../updateasset/{{asset.assetId}}">Update</button>
+            </td>
+                <!-- <td> <button type="button" class="btn btn-danger" routerLink="../update/{{emp.employeeId}}">Update</button>  </td> -->
+    
+            </tr>
+        </tbody>
+    </table>
+</div>

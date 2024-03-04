@@ -1,0 +1,23 @@
+
+  <div class="container">
+    <div class="wrapper">
+        <form  #formData=ngForm  (ngSubmit)="readFormData(formData)">
+          <h1>Login</h1>
+          <div class="input-box">
+            <input type="text" placeholder="Email" class="form-control"  name="email" required  #email="ngModel"  ngModel >
+            <i class='bx bxs-user'></i>
+          </div>
+          <div class="input-box">
+            <input type="password" placeholder="Password" class="form-control"  name="password"  required  #password="ngModel"  ngModel>
+            <i class='bx bxs-lock-alt' ></i>
+          </div>
+        
+          <button type="submit" class="btn" [disabled]="formData.invalid">Login</button>
+          <div class="register-link">
+            <p>Dont have an account? <a routerLink="../register">Register</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+

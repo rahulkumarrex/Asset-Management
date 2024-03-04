@@ -1,0 +1,28 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.container{
+    min-height: 100vh;
+    min-width: 100vw;
+    background: url('src\assets\employeeshome.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.card{
+    border: none;
+    margin-top: 150px;
+    background-color: rgba(215, 215, 215, 0.5); 
+
+    
+
+}
+h3{
+    font-size: 90px;
+    font-weight: 900;
+    font-size: 60px;
+    /* -webkit-text-stroke: 4px black; */
+    /* color: transparent; */
+}

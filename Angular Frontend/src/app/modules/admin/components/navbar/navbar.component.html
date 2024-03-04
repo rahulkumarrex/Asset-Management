@@ -1,0 +1,21 @@
+
+  <nav>
+    <div class="logo">
+      <a routerLink="./adminhomepage">Admin Dashboard</a>
+    </div>
+    <ul class="nav-links">
+      <li routerLinkActive="active"><a routerLink="./employeelist">Employees</a></li>
+      <li routerLinkActive="active"><a routerLink="./assetlist">Assets</a></li>
+      <li routerLinkActive="active"><a routerLink="./addasset">Add Assets</a></li>
+      <!-- <li routerLinkActive="active"><a routerLink="./assetrequest">Asset Request</a></li>
+      <li routerLinkActive="active"><a routerLink="./assetservicerequest">Asset Service Request</a></li> -->
+      <li routerLinkActive="active"><a routerLink="./assetrequestlist">Requests</a></li> 
+      <li routerLinkActive="active"><a routerLink="./assetservicerequestlist"> Service Requests</a></li>
+      <li routerLinkActive="active"><a routerLink="./assetaudit">Audits</a></li>
+    </ul>
+    <div class="login">
+      <div class="logout">
+      <i class="fas fa-sign-out-alt"  (click)="deleteToken()"  ></i>
+    </div>
+    </div>
+  </nav>

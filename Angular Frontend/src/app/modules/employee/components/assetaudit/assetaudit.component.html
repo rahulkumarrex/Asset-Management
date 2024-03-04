@@ -1,0 +1,33 @@
+
+<div class="main">
+<div class="contain">
+    <table class = "table table-dark"  id="assetaudit" >
+        <thead>
+            <tr>
+                <th > Audit Id</th>
+                <th > Date Requested </th>
+                <th > Asset Id </th>
+                <th > Employee Id </th>
+                <th > Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let audit of assetaudit">
+                <td> {{ audit.assetAuditId }} </td>
+                <td> {{ audit.dateAudited }} </td>
+                <td> {{ audit.asset.assetId}} </td>
+                <td> {{ audit.employee.employeeId }} </td>
+                <td>    <div class="admin">
+                    <select name="admin" id="admin{{audit.assetAuditId}}" [(ngModel)]="audit.status" (change)="updateStatus($event,audit.status , audit.assetAuditId)"  >
+                        <option [ngValue]="null" disabled selected>Select</option>
+                        <option value="Verify">Verify</option>
+                        <option value="Reject">Reject</option>
+                    </select>
+                </div> </td>
+               
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</div>

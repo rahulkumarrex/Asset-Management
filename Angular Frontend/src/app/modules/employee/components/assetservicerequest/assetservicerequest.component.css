@@ -1,0 +1,52 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.main{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.75),rgba(0, 0, 0, 0.75)),
+    url(src\assets\serviice.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.searchbar{
+  width:85%; 
+  /* position: absolute; */
+  /* margin-left: 250px; */
+
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+
+}
+#searchbar{
+    width: 40rem;
+    margin-left: 20px;
+}
+
+table{
+    margin-top: 30px;
+    width: 80%;
+}
+.banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+

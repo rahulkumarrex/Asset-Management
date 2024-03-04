@@ -1,0 +1,97 @@
+<div class="full-container">
+<div class="header"><h2 style="color: rgb(0, 0, 0); font-weight: 1000;"> Employee List</h2></div>
+<div class="container">
+<div class="searchbar">
+    <!-- <label for="cars">Search By </label> -->
+
+<select name="search" class="form-select" id="search"  [(ngModel)]="select" >
+  <option value="" disabled selected> Select</option>
+  <option value="employeeName"> Name</option>
+  <option value="employeeId">ID</option>
+</select>
+
+    <input type="text" class="form-control" placeholder="Search" id="searchbar" [(ngModel)]="searchName">
+    <button  (click)="performSearch(searchName,select)" class="btn btn-outline-info">Search</button>
+    <button  (click)="displayAll()" class="btn btn-dark" id="getall">All Employees</button>
+</div>
+</div>
+
+
+<table class = "table table-striped table-dark" id="emptable" *ngIf="showTables === 'name'"  style="background-color: rgba(255, 255, 255, 0.5);  color: black; font-weight: 700;  " >
+    <thead>
+        <tr>
+            <th> Employee ID</th>
+            <th> Employee Name </th>
+            <th> Email Id</th>
+            <!-- <th> Password </th> -->
+            <th> Gender </th>
+            <th> contact </th>
+            <th> Address </th>
+            <th> Role </th>
+         
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let emp of employeeList" >
+            <td> {{ emp.employeeId }} </td>
+            <td> {{ emp.employeeName }} </td>
+            <td> {{ emp.email }} </td>
+            <!-- <td> {{ emp.password }} </td> -->
+            <td> {{ emp.gender }}  </td>
+            <td> {{ emp.contact }}  </td>
+            <td> {{ emp.address }}  </td>
+            <td> {{ emp.role }} 
+                <div class="admin">
+                    <select name="admin" id="admin{{emp.employeeId}}"  [disabled]="emp.role === 'Admin'"  (change)="onRoleChange($event, emp.employeeId)"  >
+                        <option value="" disabled selected>Select</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div>
+            </td>
+            <td><i class="fas fa-trash-alt" id="deleteIcon" (click)="deleteById(emp.employeeId) " style="margin-top:1rem ;" ></i> </td>
+
+            <td> <button type="button" class="btn btn-danger" routerLink="../update/{{emp.employeeId}}" style="margin-top: .3rem;">Update</button>  </td>
+
+        </tr>
+    </tbody>
+</table>
+<table class = "table table-striped table-dark"  id="empById"   *ngIf="showTables === 'id'" style="background-color: rgba(255, 255, 255, 0.5);  color: black; font-weight: 700;  ">
+    <thead>
+        <tr>
+            <th> Employee ID</th>
+            <th> Employee Name </th>
+            <th> Email Id</th>
+            <!-- <th> Password </th> -->
+            <th> Gender </th>
+            <th> contact </th>
+            <th> Address </th>
+            <th> Role </th>
+         
+        </tr>
+    </thead>
+    
+    
+    <tbody> 
+        <tr>
+            <td> {{ employee.employeeId }} </td>
+            <td> {{ employee.employeeName }} </td>
+            <td> {{ employee.email }} </td>
+            <!-- <td> {{ employee.password }} </td> -->
+            <td> {{ employee.gender }}  </td>
+            <td> {{ employee.contact }}  </td>
+            <td> {{ employee.address }}  </td>
+            <td> {{ employee.role }}  </td>
+            <td> 
+                <div class="admin">
+                    <select name="admin" id="admin">
+                        <option value="" disabled selected> Select</option>
+                        <option value="admin">Admin</option>
+                     
+                    </select>
+                </div>  </td>
+            <td> <button type="button" class="btn btn-danger"  (click)="deleteById(employee.employeeId)">Delete</button>  </td>
+            
+        </tr>
+    </tbody>
+</table>
+</div>

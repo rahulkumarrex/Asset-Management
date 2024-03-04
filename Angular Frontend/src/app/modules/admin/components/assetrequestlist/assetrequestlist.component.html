@@ -1,0 +1,59 @@
+
+<div class="full-container">
+    <div class="header"><h2> Asset Request</h2></div>
+    <div class="container">
+    <div class="searchbar">   
+       
+    
+        <select name="search" class="form-select" id="search"  [(ngModel)]="select" >
+            <option value="" disabled selected> Select</option>
+            <option value="employeeId"> Employee Id</option>
+            <option value="assetId">Asset Id</option>
+          </select>
+          
+              <input type="text" class="form-control" placeholder="Search" id="searchbar" [(ngModel)]="searchName">
+              <button  (click)="performSearch(searchName,select)" class="btn btn-outline-info" id="search">Search</button>
+        
+        <button type="button" class="btn btn-outline-info" (click) ="getAllEmployeeInfo()" id="approved">Search Approved</button>
+        <button  (click)="getAllAssetRequests()" class="btn btn-dark" id="getall">All Requests</button>
+    </div>
+    <div class="condition" *ngIf="requestsNotFoundMessage">
+        <p>{{ requestsNotFoundMessage }}</p>
+      </div>
+    </div>
+
+        
+    
+    <table class = "table table border table-striped table-dark" style="background-color: rgba(255, 255, 255, 0.5);  color: black; font-weight: 900; " id="emptable">
+        <thead>
+            <tr>
+                <!-- <th> Request Id</th> -->
+                <th> Date Requested </th>
+                <th> Request Type </th>
+                <th> Status </th>
+                <th> Asset Id </th>
+                <th> Employee Id </th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let assetRequest of requests">
+                <!-- <td> {{ assetRequest.requestId }} </td> -->
+                <td> {{ assetRequest.dateRequested }} </td>
+                <td> {{ assetRequest.requestType }} </td>
+                <td>    <div class="admin">
+                    <select name="admin" id="admin{{assetRequest.requestId}}" [(ngModel)]="assetRequest.status" (change)="updateStatus($event,assetRequest.status , assetRequest.requestId)"  >
+                        <option value="" disabled selected>Select</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Approved">Approved</option>
+                    </select>
+                </div> </td>
+                <td> {{ assetRequest.asset.assetId }} </td>
+                <td> {{ assetRequest.employee.employeeId }} </td>
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="deleteById(assetRequest.requestId)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+   </div>

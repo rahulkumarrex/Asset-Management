@@ -1,0 +1,45 @@
+<div class="main">
+<div class="banner">
+<div class="container">
+
+    <div class="searchbar">
+
+        <button routerLink="/employee/assetowned"  style="width: 10rem;" class="btn btn-dark" id="getall">
+          Asset Owned
+        </button>
+      </div>
+    </div>
+
+<table class = "table table table-dark">
+    <thead>
+        <tr>
+
+            <!-- <th> Request Id</th> -->
+            <th> Request Type </th>
+            <th>  Date Requested </th>
+            <th> Asset Id </th>
+            <th> Employee Id </th>
+            <th> Status </th>
+            <th> Action </th>
+         
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let asset of  requestList" >
+            <!-- <td> {{ asset.requestId }} </td> -->
+            <td> {{ asset.requestType }} </td>
+            <td> {{ asset.dateRequested }} </td>
+            <td> {{ asset.asset.assetId }} </td>
+            <td> {{ asset.employee.employeeId }}  </td>
+            <td> {{ asset.status }}  </td>
+            <!-- <td> <button type="button" class="btn btn-danger"  (click)="deleteById(asset.requestId)">Delete</button>  </td> -->
+            <td>  
+                <i class="fas fa-trash-alt" id="deleteIcon" style="margin-left: 20px;"  (click)="deleteById(asset.requestId)" ></i> 
+             </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+
+</div>

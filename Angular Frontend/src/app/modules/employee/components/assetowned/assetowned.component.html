@@ -1,0 +1,72 @@
+<div class="main">
+<div class="banner">
+    
+<div class="container">
+
+    <div class="searchbar">
+        <button routerLink="/employee/assetservicerequest"   style="width: 12rem;" class="btn btn-dark" id="getall">
+          Service Requests
+        </button>
+        <button routerLink="/employee/assetrequest" style="width: 15rem;" class="btn btn-dark" id="getall">
+          Asset Requested 
+        </button>
+      </div>
+    </div>
+
+
+<table class="table table-dark"> 
+    <thead>
+        <tr>
+            <!-- <th>Request Id</th> -->
+            <th>Request Type</th>
+            <th>Date Requested</th>
+            <th>Asset Id</th>
+            <th>Employee Id</th>
+            <th>Status</th>
+            <th>Action</th>
+            <th>Request Service</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let asset of requestList">
+        <tr *ngIf="asset.employee.employeeId=== empId ">
+            
+            <!-- <td>{{ asset.requestId }}</td> -->
+            <td>
+                <div class="servicerequest">
+                    <select name="admin" id="servicerequest{{asset.requestId}}"
+                            [(ngModel)]="asset.selectedRequestType"
+                            (change)="updateIssue($event, asset.selectedRequestType, asset.requestId)">
+                        <option value="" selected>Select</option>
+                        <option value="New Asset">New Asset</option>
+                        <option value="Return">Return</option>
+                    </select>
+                  </div>
+                   
+            </td>
+            <td>{{ asset.dateRequested }}</td>
+            <td>{{ asset.asset.assetId }}</td>
+            <td>{{ asset.employee.employeeId }}</td>
+            <td>{{ asset.status }}</td>
+            <td>
+                <button type="button" class="btn btn-danger" (click)="deleteById(asset.requestId)">Delete</button>
+            </td>
+            <td> 
+
+                    <div class="servicerequest">
+                      <select name="admin" id="servicerequest{{asset.requestId}}"
+                              [(ngModel)]="asset.selectedRequestType"
+                              (change)="addServieRequest($event, asset.asset.assetId, asset.employee.employeeId, asset.selectedRequestType)">
+                          <option value="" disabled selected>Select</option>
+                          <option value="Malfunction">Malfunction</option>
+                          <option value="Repair">Repair</option>
+                      </select>
+                    </div>
+                  
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</div>

@@ -1,0 +1,21 @@
+.contain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+table{
+    margin-top: 100px;
+    width: 60%;
+}
+
+.main{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.75),rgba(0, 0, 0, 0.75)),
+    url(src\assets\audit.jpg);
+    background-size: cover;
+    background-position: center;
+}

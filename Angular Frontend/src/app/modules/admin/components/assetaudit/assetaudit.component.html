@@ -1,0 +1,72 @@
+
+<div class="full-container">
+    <div class="header"><h2> Asset List</h2></div>
+    <div class="container">
+    <div class="searchbar">   
+       
+
+        
+        <button type="button" class="btn btn-info" id="view" (click) ="getAllEmployeeInfo()">View Employee</button>
+        <button  (click)="getAllAssetAudits() " class="btn btn-dark" id="getall">All Audits</button>
+    </div>
+    </div>
+
+        
+    
+    <table class = "table table-striped table-dark" style="background-color: rgba(255, 255, 255, 0.5);  color: black; font-weight: 700; " id="emptable" *ngIf="showTables === 'assetrequest'">
+        <thead>
+            <tr>
+                <!-- <th> Request Id</th> -->
+                <th> Date Requested </th>
+                <th> Request Type </th>
+                <th> Status </th>
+                <th> Asset Id </th>
+                <th> Employee Id </th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let assetRequest of requests">
+                <!-- <td> {{ assetRequest.requestId }} </td> -->
+                <td> {{ assetRequest.dateRequested }} </td>
+                <td> {{ assetRequest.requestType }} </td>
+                <td>   {{ assetRequest.status }} </td>
+                <td> {{ assetRequest.asset.assetId }} </td>
+                <td> {{ assetRequest.employee.employeeId }} </td>
+                <td>
+                    <button type="button" class="btn btn-primary" (click)="sendAuditRequest(assetRequest.asset.assetId, assetRequest.employee.employeeId)">
+                      Send Audit Request
+                    </button>
+                  </td>
+               
+            </tr>
+        </tbody>
+    </table>
+
+
+    <table class = "table table-striped table-dark" style="background-color: rgba(255, 255, 255, 0.5);  color: black; font-weight: 700; " id="emptable" *ngIf="showTables === 'assetaudit'">
+        <thead>
+            <tr>
+                <!-- <th > Audit Id</th> -->
+                <th > Date Requested </th>
+                <th > Asset Id </th>
+                <th > Employee Id </th>
+                <th > Status</th>
+                <th > Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let audit of (audits$ | async)">
+                <!-- <td> {{ audit.assetAuditId }} </td> -->
+                <td> {{ audit.dateAudited }} </td>
+                <td> {{ audit.asset.assetId}} </td>
+                <td> {{ audit.employee.employeeId }} </td>
+                <td>   {{ audit.status }} </td>
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="deleteById(audit.assetAuditId)">Delete</button>
+                </td>
+               
+            </tr>
+        </tbody>
+    </table>
+   </div>

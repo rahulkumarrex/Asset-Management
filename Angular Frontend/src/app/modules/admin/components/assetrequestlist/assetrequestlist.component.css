@@ -1,0 +1,71 @@
+.full-container{
+  min-height: 100vh;
+  min-width: 100vw;
+  background: url('src\assets\userlist.png') no-repeat center center fixed;
+  background-size: cover;
+   display: flex;
+  align-items: center;
+  flex-direction: column; 
+  border: 10px solid black;
+
+}
+.condition{
+  color: red;
+
+  font-weight: 600;
+}
+.container {
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column; 
+
+  justify-content: space-between;
+  gap :5px;
+  margin-bottom: 5px;
+}
+.search-container select,
+.search-container input,
+.search-container button{
+  width: 100px;
+  height: 50px;
+  margin-left: 5px;
+} 
+table{
+width: 95%;
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchbar{
+  width:85%; 
+  /* position: absolute; */
+  /* margin-left: 250px; */
+
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+
+}
+#search{
+  margin-left: 10px;
+}
+#searchbar{
+  margin-left: 10px;
+}
+#getall{
+  width: 20rem;
+  margin-left: 10px;
+  
+}
+
+#approved{
+  width: 20rem;
+  margin-left: 10px;
+}
+

@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  /* background-color: #8E7AB5; */
+  width: 100vw;
+  background-color: rgb(0, 0, 0);
+  position: static;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.login a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.login span {
+  color: #ccc;
+  margin: 0 5px;
+}
+
+
+.logout{
+  position: absolute;
+  right: 50px;
+  top: 15px;
+  color: white;
+}
+
+.logout:hover{
+  color: rgb(205, 25, 25);
+  transition: 0.6s;
+}

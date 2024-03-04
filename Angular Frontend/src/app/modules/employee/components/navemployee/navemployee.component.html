@@ -1,0 +1,25 @@
+<div class="main">
+  
+    <nav id="navbar" class="" style="background: rgb(123, 175, 191);">
+      
+      <div class="nav-wrapper">
+        <div class="logo">
+          <a href="#" style="color: rgb(255, 255, 255);">Asset Management</a>
+        </div>
+    
+        <ul >
+          <li><a routerLink="/homepage">Home</a></li>
+           <li><a href="#service">Services</a></li>
+           <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="logout">
+          <i class="fas fa-sign-out-alt" [hidden]="checkToken()" (click)="deleteToken()"  ></i>
+      
+          </div>
+        
+      </div>
+    </nav>
+  
+  </div>
+  

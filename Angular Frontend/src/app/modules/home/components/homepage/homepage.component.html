@@ -1,0 +1,69 @@
+
+<div class="banner">
+
+   
+    <div id="content"  >
+        <h1>WELCOME TO ASSET MANAGEMENT</h1>
+        <p> We are providing comprehensive solutions for tracking and managing your company's valuable assets</p>
+        
+        <div class="buttons">
+          
+        <button type="button" class="login" [hidden]=" isLogin()" (click)="loginPage()"  > <span></span> Login</button>
+        <button type="button" class="signin" [hidden]=" isLogin()" (click)="signUpPage()" > <span></span> Sign in</button>
+        </div>  
+    </div>
+    
+     
+  </div>
+
+  <div id="about">
+    <h2>About Us</h2>
+    <p>Welcome to Asset Management, where we specialize in providing comprehensive solutions for tracking and managing your company's valuable assets. With our innovative tools and experienced team, we strive to simplify asset management processes and help businesses optimize their resources.</p>
+    <p>Our mission is to empower organizations to make informed decisions about their assets, enhance operational efficiency, and ultimately drive success. Whether you're a small startup or a large enterprise, we're here to support you every step of the way.</p>
+  </div>
+  
+
+
+<div >
+
+   
+    <div id="service">
+        <h1>Services</h1>
+        
+        <div class="container">
+            <div class="clickable-div" [ngClass]= "{'disabled': isDisabled}" (click)="!isDisabled && handleClick(1)" >
+              <h3>View Assets</h3>
+              <p>Browse through the list of assets.</p>
+            </div>
+          
+            <div class="clickable-div" [ngClass]= "{'disabled': isDisabled}" (click)="!isDisabled && handleClick(2)">
+              <h3>View Assets Owned By You</h3>
+              <p>List of Assets that you owned.</p>
+            </div>
+          
+            <div class="clickable-div" [ngClass]= "{'disabled': isDisabled}" (click)="!isDisabled && handleClick(3)">
+              <h3>Audit</h3>
+              <p>Verify the condition of the asset owned.</p>
+            </div>
+          </div>
+          
+          
+    </div>
+    
+    <div id="contact">
+
+          <h2>Contact Technical Support</h2>
+
+          <div class="para">
+          <p>If you encounter any technical issues, please feel free to contact our technical support team:</p>
+          <ul>
+            <li><a href="support@gmail.com">support@gmail.com</a></li>
+            <li><a href="techsupport@gmail.com">techsupport@gmail.com</a></li>
+          </ul>
+        </div>
+
+          
+    </div>
+    
+     
+  </div>

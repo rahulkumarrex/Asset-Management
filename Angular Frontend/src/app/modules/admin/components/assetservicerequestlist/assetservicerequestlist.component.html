@@ -1,0 +1,52 @@
+<div class="full-container">
+    <div class="header"><h2> Asset Service</h2></div>
+    <div class="container">
+    <div class="searchbar">   
+       
+    
+        <select name="search" class="form-select" id="search"  [(ngModel)]="select" >
+            <option value="" disabled selected> Select</option>
+            <option value="employeeId"> Employee Id</option>
+            <option value="assetId">Asset Id</option>
+          </select>
+          
+              <input type="text" class="form-control" placeholder="Search" id="searchbar" [(ngModel)]="searchName">
+              <button  (click)="performSearch(searchName,select)" id="search" class="btn btn-outline-info">Search</button>
+        
+       
+        <button  (click)="getAllAssetServiceRequests()" class="btn btn-dark" id="getall">All Service Requests</button>
+    </div>
+    <div class="condition" *ngIf="requestsNotFoundMessage">
+        <p>{{ requestsNotFoundMessage }}</p>
+      </div>
+    </div>
+
+        <table class = "table table table-hover" style="background-color: rgba(255, 255, 255, 0.5);  color: black; font-weight: 700; " >
+    <thead>
+        <tr>
+            <!-- <th>Service Request Id</th> -->
+            <th> Issue Type </th>
+            <th>  Date Requested </th>
+            <th> Status </th>
+            <th> Asset Id </th>
+            <th> Employee Id </th>
+         
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let assetservice of   requests" >
+            <td> {{ assetservice.issueType }} </td>
+            <td> {{ assetservice.dateRequested }} </td>
+            <td>    <div class="admin">
+                <select name="admin" id="admin{{assetservice.serviceRequestId}}" [(ngModel)]="assetservice.status" (change)="updateStatus($event,assetservice.status , assetservice.serviceRequestId)"  >
+                    <option value="Pending" disabled selected>Pending</option>
+                    <option value="Approved">Approved</option>
+                    <option value="In Progress">In Progress</option>
+                </select>
+            </div> </td>
+            <td> {{ assetservice.asset.assetId }} </td>
+            <td> {{ assetservice.employee.employeeId }} </td>
+            <td> <button type="button" class="btn btn-danger"  (click)="deleteById(assetservice.serviceRequestId)">Delete</button>  </td>
+        </tr>
+    </tbody>
+</table>
